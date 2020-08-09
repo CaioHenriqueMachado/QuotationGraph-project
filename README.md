@@ -1,2 +1,5 @@
 # QuotationGraph-project
-API DA cotação do dollar
+API de cotação do dollar
+
+
+Projeto ainda não finalizado
