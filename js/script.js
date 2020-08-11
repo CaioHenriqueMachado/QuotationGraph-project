@@ -62,14 +62,25 @@ var query = "/json/all";
 
 var url = burl + query;
 
-var oi = fetch(url)
-.then((Response) => {
-  
-  return Response;
-}).then((data) => {
-
-  return data;
+const options = {
+  method: 'GET',
+  mode: 'cors',
+  cache: 'default'
+}
+var oi = fetch(url, options)
+.then((response) => {
+  response.json()
+ .then(data => console.log(data))
 })
+.catch(e => console.log(e))
+
+
+
+
+// .then((data) => {
+
+//   return data;
+// })
 
 console.log(oi);
 
