@@ -46,20 +46,41 @@ function graphic(data) {
     });
   }
 
-  setInterval( ()=> {
-    array.push(value);
-    graphic(array);
-    value +=1;
-    console.log(array)
+  // setInterval( ()=> {
+  //   array.push(value);
+  //   graphic(array);
+  //   value +=1;
+  //   console.log(array)
 
-  }, 2000);
+  // }, 2000);
 
 
-  
-
-// colocar dados básicos pra ver.
-
-// injetar um dado de cada vez.
 
 // listar a API.
+var burl = "https://economia.awesomeapi.com.br/";
+var query = "/json/all";
+
+var url = burl + query;
+
+var oi = fetch(url)
+.then((Response) => {
+  
+  return Response;
+}).then((data) => {
+
+  return data;
+})
+
+console.log(oi);
+
+// fetch(url)
+// .then( (response) => {
+//   // console.log(Response.json())
+//   return response
+// }).then((data) => {
+//   console.log(data)
+// })
+
+
+// Aplicar API no grafico
 
