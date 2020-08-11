@@ -58,7 +58,7 @@ function graphic(data) {
 
 // listar a API.
 var burl = "https://economia.awesomeapi.com.br";
-var query = "/json/all/USD-BRL?10";
+var query = "/json/daily/USD-BRL/445";
 
 var url = burl + query;
 
