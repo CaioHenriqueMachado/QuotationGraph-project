@@ -57,23 +57,22 @@ function graphic(data) {
 
 
 // listar a API.
-var burl = "https://economia.awesomeapi.com.br/";
-var query = "/json/all";
+var burl = "https://economia.awesomeapi.com.br";
+var query = "/json/all/USD-BRL?10";
 
 var url = burl + query;
 
-const options = {
-  method: 'GET',
-  mode: 'cors',
-  cache: 'default'
-}
-var oi = fetch(url, options)
+var moeda = fetch(url)
 .then((response) => {
   response.json()
  .then(data => console.log(data))
 })
 .catch(e => console.log(e))
 
+
+var data = new Date();
+
+console.log(data.getDate());
 
 
 
@@ -82,7 +81,7 @@ var oi = fetch(url, options)
 //   return data;
 // })
 
-console.log(oi);
+
 
 // fetch(url)
 // .then( (response) => {
