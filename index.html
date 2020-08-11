@@ -3,59 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.js"></script>
   <link rel="stylesheet" href="./css/style.css">
   <title>Graphic Cotation Dollar</title>
 </head>
 <body>
   <div class="container">
     <h1>Gráfico da cotação do dolar</h1>
+    <h1 id="f"></h1>
     <div class="graphic">
-      <div id="graphic_chart"></div>
-      
+        <canvas id="myChart"></canvas>
     </div>
   </div>
 
-
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  
-  <script type="text/javascript">
-    google.charts.load('current', {'packages':['corechart']});
-    google.charts.setOnLoadCallback(drawChart);
-
-    function drawChart() {
-      var data = google.visualization.arrayToDataTable([
-        ['Data', 'Dolar'],
-        ['08/2019',  3.543],
-        ['09/2019',  3.435],
-        ['10/2019',  4.123],
-        ['11/2019',  4.244],
-        ['12/2019',  4.032],
-        ['01/2020',  4.2343],
-        ['02/2020',  4.534],
-        ['03/2020',  4.4321],
-        ['04/2020',  4.5423],
-        ['05/2020',  4.6133],
-        ['06/2020',  5.532],
-        ['07/2020',  5.7543],
-        ['08/2020',  5.4231]
-      ]);
-
-      var options = {
-        curveType: 'function',
-        legend: { position: 'bottom' },
-        backgroundColor: 'transparent'
-      };
-
-      var chart = new google.visualization.LineChart(document.getElementById('graphic_chart'));
-
-      chart.draw(data, options);
-
-      data.arrayToDataTable[0].push(
-      ['sadsa',  1000.54],
-          );
-
-      chart.draw(data, options);
-    }
-  </script>
+  <script src="./js/script.js"></script>
 </body>
 </html>
