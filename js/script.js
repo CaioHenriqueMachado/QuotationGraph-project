@@ -2,20 +2,25 @@ var ctx = document.getElementById('myChart').getContext('2d');
 
 var array = [];
 
-function graphic(data) {
-  
+function graphic(data, label) {
+  console.log(data);
   var chart = new Chart(ctx, {
       type: 'line',
 
       data: {
-          labels: ['02/2020', '03/2020', '04/2020', '05/2020', '06/2020', '07/2020', '08/2020'],
+          labels: ['', '', '', '', '', '', '','', '', '','','', '', ''],
           datasets: [{
               label: 'Dollar',
               backgroundColor: 'transparent',
               borderColor: 'blue',
               data: data,
+              // data: [5.4272, 5.3825, 5.4852, 5.4378, 5.4374, 5.3291, 5.2902, 5.289, 5.3205, 5.2215, 5.222, 5.155, 5.17, 5.1627, 5.149],
               borderColor: '#f1f1f1',
-              borderWidth: 4
+              borderWidth: 4,
+              tension: 0.3,
+              radius: 1.7,
+              border: 1.5,
+              angle:0,
           }]
       },
       options: {
@@ -49,6 +54,11 @@ function graphic(data) {
 var burl = "https://economia.awesomeapi.com.br";
 var query = "/json/daily/USD-BRL/15";
 var results = [];
+var label = [];
+// var ttt = [5.4272, 5.3825, 5.4852, 5.4378, 5.4374, 5.3291, 5.2902, 5.289, 5.3205, 5.2215, 5.222, 5.155, 5.17, 5.1627, 5.149]
+
+var ttt = [];
+console.log(ttt)
 function apiCash() {
 
 var url = burl + query;
@@ -59,18 +69,22 @@ var moeda = fetch(url)
  .then(data => 
    
   data.map(data => {
-    results.push(data.bid)
+    console.log(data.bid);
+    results.push(Number(data.bid))
+    label.push('')
+    // console.log(results)
+    // console.log(label)
   })
+  
    
 )
 .catch(e => console.log(e))
  })
-
 }
 
 
-
-apiCash(array);
+apiCash();
+graphic(results, label);
 
   // setInterval( ()=> {
   //   // console.log(apiCash())
