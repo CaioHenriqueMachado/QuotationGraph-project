@@ -20,8 +20,9 @@ form {
   width: 70vw;
   height: 40px;
   border-radius: 10px;
+  display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 label {
@@ -29,14 +30,31 @@ label {
   font-weight: 700;
 }
 
-input {
-  width: 80px;
+input, select {
+  width: 40px;
   height: 30px;
   border-radius: 10px;
   cursor: pointer;
   border: 1px solid black;
-  padding: 10px;
-  
+  padding: 5px;
+}
+select {
+  width: 80px;
+}
+
+button {
+  width: 70px;
+  height: 30px;
+  border-radius: 10px;
+  border: 3px solid black;
+  background-color: cadetblue;
+  cursor: pointer;
+}
+
+
+input[type=number] { 
+  -moz-appearance: textfield;
+  appearance: textfield;
 }
 
 

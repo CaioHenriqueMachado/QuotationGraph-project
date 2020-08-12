@@ -46,34 +46,35 @@ function graphic(data) {
     });
   }
 
-  // setInterval( ()=> {
-  //   array.push(value);
-  //   graphic(array);
-  //   value +=1;
-  //   console.log(array)
+  setInterval( ()=> {
+    // console.log(apiCash())
+    array.push(apiCash());
+    graphic(array);
+    value +=1;
+    console.log(array)
 
-  // }, 2000);
+  }, 5000);
 
 
 
 // listar a API.
 var burl = "https://economia.awesomeapi.com.br";
-var query = "/json/daily/USD-BRL/445";
+var query = "/json/all/USD-BRL";
+function apiCash() {
 
 var url = burl + query;
 
 var moeda = fetch(url)
 .then((response) => {
   response.json()
- .then(data => console.log(data))
+ .then(data => 
+   
+   console.log (data.USD.bid)
 })
 .catch(e => console.log(e))
 
 
-var data = new Date();
-
-console.log(data.getDate());
-
+}
 
 
 // .then((data) => {
