@@ -1,9 +1,6 @@
 var ctx = document.getElementById('myChart').getContext('2d');
-// criar o grafico.
 
 var array = [];
-
-var value = 1;
 
 function graphic(data) {
   
@@ -46,20 +43,12 @@ function graphic(data) {
     });
   }
 
-  setInterval( ()=> {
-    // console.log(apiCash())
-    array.push(apiCash());
-    graphic(array);
-    value +=1;
-    console.log(array)
-
-  }, 5000);
-
 
 
 // listar a API.
 var burl = "https://economia.awesomeapi.com.br";
-var query = "/json/all/USD-BRL";
+var query = "/json/daily/USD-BRL/15";
+var results = [];
 function apiCash() {
 
 var url = burl + query;
@@ -69,29 +58,25 @@ var moeda = fetch(url)
   response.json()
  .then(data => 
    
-   console.log (data.USD.bid)
-})
+  data.map(data => {
+    results.push(data.bid)
+  })
+   
+)
 .catch(e => console.log(e))
-
+ })
 
 }
 
 
-// .then((data) => {
 
-//   return data;
-// })
+apiCash(array);
 
+  // setInterval( ()=> {
+  //   // console.log(apiCash())
+  //   array.push(apiCash());
+  //   graphic(array);
+  //   value +=1;
+  //   console.log(array)
 
-
-// fetch(url)
-// .then( (response) => {
-//   // console.log(Response.json())
-//   return response
-// }).then((data) => {
-//   console.log(data)
-// })
-
-
-// Aplicar API no grafico
-
+  // }, 5000);
