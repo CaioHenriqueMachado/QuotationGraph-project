@@ -3,7 +3,6 @@ var ctx = document.getElementById('myChart').getContext('2d');
 var array = [];
 
 function graphic(data, label) {
-  console.log(data.value);
   var chart = new Chart(ctx, {
       type: 'line',
 
@@ -54,37 +53,47 @@ function graphic(data, label) {
 var burl = "https://economia.awesomeapi.com.br";
 var query = "/json/daily/USD-BRL/15";
 var results = [];
-var label = [];
+var label = 0;
 var ttt = []
-// ttt.push(1, 5.3825, 5.4852, 5.4378, 5.4374, 5.3291, 5.2902, 5.289, 5.3205, 5.2215, 5.222, 5.155, 5.17, 5.1627, 5.149);
-var x = [];
-// console.log(ttt)
-function apiCash() {
+ttt.push(1, 5.3825, 777, 5.4378, 5.4374, 5.3291, 5.2902, 5.289, 5.3205, 5.2215, 5.222, 5.155, 5.17, 5.1627, 5.149);
+console.log(ttt);
+console.log(ttt[2]);
+
+async function apiCash() {
 
 var url = burl + query;
 
-var moeda = fetch(url)
-.then((response) => {
-  response.json()
- .then(data => 
+await fetch(url)
+.then(response => { response.json()
+ .then((data) => {
+       data.forEach(element => {
+      //  console.log(element.bid);
+        label = Number(element.bid);
+        results.push(label);
+
+     
+   });
+  console.log(results);
    
-  x.push(data.map(data => {
-    console.log(data.bid);
-    let value = Number(data.bid);
-    results.push(value);
-    label.push('')
-    return data.bid;
-  }))
-  
-)
-.catch(e => console.log(e))
- })
+ }).catch(e => console.log(e))
+
+}).catch(e => console.log(e))
+
 }
 
 
-console.log(x);
-console.log('s')
-console.log(results);
+
+// function getValue(value) {
+//   results.push(value);
+// }
+
+
+
+
+
+
+
+console.log(results)
 apiCash();
 graphic(results, label);
 
