@@ -7,10 +7,11 @@ var moeda = document.getElementById('moeda');
 var intialDay = document.getElementById('day');
 intialDay.value = 30;
 
+apiCash(moeda.value, intialDay.value);
 form.addEventListener("submit", e => {
   e.preventDefault();
-  console.log(intialDay.value);
-  console.log(moeda.value);
+  apiCash(moeda.value, intialDay.value);
+
 });
 
 
@@ -46,8 +47,6 @@ async function apiCash(coin, days) {
   }).catch(e => console.log(e))
 
   }
-
-apiCash();
 
 function graphic(data, label) {
   var chart = new Chart(ctx, {
