@@ -11,19 +11,7 @@ apiCash(moeda.value, intialDay.value);
 form.addEventListener("submit", e => {
   e.preventDefault();
   apiCash(moeda.value, intialDay.value);
-
 });
-
-
-
-
-
-
-
-
-
-
-// listar a API.
 
 async function apiCash(coin, days) {
   var burl = "https://economia.awesomeapi.com.br";
@@ -55,7 +43,7 @@ function graphic(data, label) {
       data: {
           labels: label,
           datasets: [{
-              label: 'Dollar',
+              label: 'Coin',
               backgroundColor: 'transparent',
               borderColor: 'blue',
               data: data,
