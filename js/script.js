@@ -1,6 +1,53 @@
 var ctx = document.getElementById('myChart').getContext('2d');
 
-var array = [];
+const form = document.getElementById("inputForm");
+
+var moeda = document.getElementById('moeda');
+
+var intialDay = document.getElementById('day');
+intialDay.value = 30;
+
+form.addEventListener("submit", e => {
+  e.preventDefault();
+  console.log(intialDay.value);
+  console.log(moeda.value);
+});
+
+
+
+
+
+
+
+
+
+
+// listar a API.
+
+async function apiCash(coin, days) {
+  var burl = "https://economia.awesomeapi.com.br";
+  var query = `/json/daily/${coin}/${days}`;
+  var url = burl + query;
+  var results = [];
+  var label = [];
+  
+  await fetch(url)
+    .then(response => { response.json()
+      .then((data) => {
+        data.forEach(element => {
+          results.push(Number(element.bid));
+          label.push('');
+      });
+
+    graphic(results, label);
+
+    }).catch(e => console.log(e))
+
+  }).catch(e => console.log(e))
+
+  }
+
+apiCash();
 
 function graphic(data, label) {
   var chart = new Chart(ctx, {
@@ -13,25 +60,24 @@ function graphic(data, label) {
               backgroundColor: 'transparent',
               borderColor: 'blue',
               data: data,
-              // data: [5.4272, 5.3825, 5.4852, 5.4378, 5.4374, 5.3291, 5.2902, 5.289, 5.3205, 5.2215, 5.222, 5.155, 5.17, 5.1627, 5.149],
               borderColor: '#f1f1f1',
-              // borderWidth: 4,
-              // tension: 0.3,
-              // radius: 1.7,
-              // border: 1.5,
-              // angle:0,
+              borderWidth: 4,
+              tension: 0.3,
+              radius: 1.7,
+              border: 1.5,
+              angle:0,
           }]
       },
-      // options: {
-      //     scales: {
-      //       yAxes: [{
-      //           ticks: {
-      //               fontColor: '#fff',
-      //               zeroLineWidth: 1
-      //           }
-      //       }]
-      //   },
-      // },
+      options: {
+          scales: {
+            yAxes: [{
+                ticks: {
+                    fontColor: '#fff',
+                    zeroLineWidth: 1
+                }
+            }]
+        },
+      },
 
       legend: {
 
@@ -45,51 +91,4 @@ function graphic(data, label) {
       },
 
     });
-  }
-
-
-
-// listar a API.
-var burl = "https://economia.awesomeapi.com.br";
-var query = "/json/daily/USD-BRL/20";
-var results = [];
-var label = [];
-// var ttt = []
-// ttt.push(1, 5.3825, 777, 5.4378, 5.4374, 5.3291, 5.2902, 5.289, 5.3205, 5.2215, 5.222, 5.155, 5.17, 5.1627, 5.149);
-// console.log(ttt);
-// console.log(ttt[2]);
-
-async function apiCash() {
-
-var url = burl + query;
-
-await fetch(url)
-.then(response => { response.json()
- .then((data) => {
-       data.forEach(element => {
-        results.push(Number(element.bid));
-        label.push('');
-
-  });
-
-  graphic(results, label);
-
- }).catch(e => console.log(e))
-
-}).catch(e => console.log(e))
-
 }
-
-
-
-apiCash();
-
-
-  // setInterval( ()=> {
-  //   // console.log(apiCash())
-  //   array.push(apiCash());
-  //   graphic(array);
-  //   value +=1;
-  //   console.log(array)
-
-  // }, 5000);

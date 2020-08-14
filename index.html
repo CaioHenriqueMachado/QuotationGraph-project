@@ -14,19 +14,18 @@
     <div class="graphic">
         <canvas id="myChart"></canvas>
     </div>
-    <form>
+    <form onsubmit="" id="inputForm">
       <div>
         <label>Últimos</label>
-        <input type="number" name="" id="" min="0" max="359">
+        <input type="number" name="" id="day" min="0" max="359">
         <label>dias</label>
       </div>
       <div>
         <label>Moeda</label>
-        <select>
-          <option value=""></option>
-          <option value="">Dolar</option>
-          <option value="">Euro</option>
-          <option value="">Bitcoin</option>
+        <select id="moeda">
+          <option value="USD-BRL">Dolar</option>
+          <option value="Euro">Euro</option>
+          <option value="Bitcoin">Bitcoin</option>
         </select>
         <button type="submit">Atualizar</button>
       </div>
