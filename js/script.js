@@ -7,7 +7,7 @@ function graphic(data, label) {
       type: 'line',
 
       data: {
-          labels: ['', '', '', '', '', '', '','', '', '','','', '', ''],
+          labels: label,
           datasets: [{
               label: 'Dollar',
               backgroundColor: 'transparent',
