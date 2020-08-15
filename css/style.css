@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 }
 
 div.container {
@@ -10,19 +13,36 @@ div.container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  padding-top: 30px;
+  /* justify-content: center; */
   background-color: aquamarine;
   text-align: center;
+  position: relative;
+}
+
+div.img {
+  position: absolute;
+  width: 200px;
+  justify-content: center;
+  bottom: 1%;
+
+}
+
+img {
+  width: 100%;
+  height: 100%;
 }
 
 form {
   /* background-color: blue; */
-  width: 70vw;
+  width: 98vw;
+  max-width: 800px;
   height: 40px;
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 label {
@@ -39,7 +59,7 @@ input, select {
   padding: 5px;
 }
 select {
-  width: 120px;
+  width: 140px;
 }
 
 button {
@@ -58,7 +78,8 @@ input[type=number] {
 }
 
 div.graphic {
-  width: 70vw;
+  width: 98vw;
+  max-width: 800px;
   padding: 10px;
   border-radius: 10px;
   border: 1px solid black;
@@ -68,4 +89,18 @@ div.graphic {
 div.graphic canvas {
   width: 100%;
   height: 100%;
+}
+
+@media (max-width: 475px) {
+  form {
+    justify-content: left;
+  }
+
+  form div{
+    padding: 10px;
+  }
+
+  div.img {
+    width: 300px;
+  }
 }

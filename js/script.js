@@ -28,7 +28,8 @@ async function apiCash(coin, days) {
           label.push('');
       });
 
-    graphic(results, label);
+      results.reverse();
+      graphic(results, label);
 
     }).catch(e => console.log(e))
 
