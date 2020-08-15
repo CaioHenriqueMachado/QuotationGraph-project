@@ -27,10 +27,10 @@
 <br>
 
 - 🔀 **AwesomeAPI**     - API usado para a busca dos dados da moeda.
-- 📊 **Chart.JS**       - Para inserir gráfico.
-- 📄 **HTML5** 		      - Para construir a estrutura do site.
-- ⚛️ **CSS3** 	        - Para a estilização e personalização das estruturas no site.
-- 📊 **JavaScript**     - Para inserir dados da API no gráfico.
+- 📈 **Chart.JS**       - Para inserir gráfico.
+- 🟠 **HTML5** 		      - Para construir a estrutura do site.
+- 🟣 **CSS3** 	        - Para a estilização e personalização das estruturas no site.
+- 🟡 **JavaScript**     - Para inserir dados da API no gráfico.
 
 <img src="./img/line.png" alt="line" width="100%">
 <br>
